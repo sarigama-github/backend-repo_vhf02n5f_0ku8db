@@ -161,6 +161,88 @@ def seed_sample_products():
                 {"size": "10", "color": "blue", "stock": 4}
             ],
             "featured": False
+        },
+        # New categories and models
+        {
+            "title": "SoleStyle Breeze Slip-On",
+            "description": "Minimal slip-on for effortless comfort and everyday wear.",
+            "price": 79.99,
+            "categories": ["casual", "women"],
+            "images": [
+                "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/Chair.glb",
+            "variants": [
+                {"size": "6", "color": "white", "stock": 14},
+                {"size": "7", "color": "gray", "stock": 10},
+                {"size": "8", "color": "black", "stock": 6}
+            ],
+            "featured": False
+        },
+        {
+            "title": "SoleStyle Executive Oxford",
+            "description": "Polished leather oxford for formal occasions and daily elegance.",
+            "price": 149.0,
+            "categories": ["formal", "men"],
+            "images": [
+                "https://images.unsplash.com/photo-1511381939415-c1c76e0b9b8e?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/DamagedHelmet.glb",
+            "variants": [
+                {"size": "8", "color": "black", "stock": 7},
+                {"size": "9", "color": "black", "stock": 9},
+                {"size": "10", "color": "brown", "stock": 5},
+                {"size": "11", "color": "brown", "stock": 4}
+            ],
+            "featured": True
+        },
+        {
+            "title": "SoleStyle Mini Runner",
+            "description": "Durable and colorful sneakers made for energetic kids.",
+            "price": 69.5,
+            "categories": ["kids", "casual"],
+            "images": [
+                "https://images.unsplash.com/photo-1533867617858-e7b1f1fd86d6?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/Buggy.glb",
+            "variants": [
+                {"size": "2", "color": "blue", "stock": 12},
+                {"size": "3", "color": "pink", "stock": 10},
+                {"size": "4", "color": "green", "stock": 8}
+            ],
+            "featured": False
+        },
+        {
+            "title": "SoleStyle Street High-Top",
+            "description": "Iconic high-top silhouette with padded collar and bold style.",
+            "price": 99.0,
+            "categories": ["casual", "men"],
+            "images": [
+                "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/Chair.glb",
+            "variants": [
+                {"size": "9", "color": "black", "stock": 10},
+                {"size": "10", "color": "white", "stock": 7},
+                {"size": "11", "color": "black", "stock": 5}
+            ],
+            "featured": False
+        },
+        {
+            "title": "SoleStyle Swift Trainer",
+            "description": "Responsive trainer designed for sprints and gym sessions.",
+            "price": 109.0,
+            "categories": ["sports", "women"],
+            "images": [
+                "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+            "variants": [
+                {"size": "6", "color": "teal", "stock": 9},
+                {"size": "7", "color": "teal", "stock": 7},
+                {"size": "8", "color": "black", "stock": 6}
+            ],
+            "featured": True
         }
     ]
 
