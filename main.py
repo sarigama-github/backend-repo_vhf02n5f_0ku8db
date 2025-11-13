@@ -108,6 +108,72 @@ def delete_product(product_id: str):
         raise HTTPException(404, "Product not found")
     return {"ok": True}
 
+# Seed sample catalog --------------------------------------------------------
+@app.post("/api/admin/seed")
+def seed_sample_products():
+    if db is None:
+        raise HTTPException(500, "Database not configured")
+
+    samples = [
+        {
+            "title": "SoleStyle Runner X",
+            "description": "Lightweight running shoe with breathable mesh and responsive cushioning.",
+            "price": 119.99,
+            "categories": ["sports", "men"],
+            "images": [
+                "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+            "variants": [
+                {"size": "8", "color": "black", "stock": 12},
+                {"size": "9", "color": "black", "stock": 8},
+                {"size": "9", "color": "red", "stock": 5}
+            ],
+            "featured": True
+        },
+        {
+            "title": "SoleStyle Street Classic",
+            "description": "Everyday casual sneaker with clean silhouette and durable rubber sole.",
+            "price": 89.0,
+            "categories": ["casual", "women"],
+            "images": [
+                "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/RobotExpressive.glb",
+            "variants": [
+                {"size": "6", "color": "white", "stock": 15},
+                {"size": "7", "color": "white", "stock": 10},
+                {"size": "7", "color": "navy", "stock": 6}
+            ],
+            "featured": True
+        },
+        {
+            "title": "SoleStyle Court Pro",
+            "description": "High-grip court shoe engineered for agility and stability.",
+            "price": 129.5,
+            "categories": ["sports"],
+            "images": [
+                "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1200&auto=format&fit=crop"
+            ],
+            "model_url": "https://modelviewer.dev/shared-assets/models/Horse.glb",
+            "variants": [
+                {"size": "8", "color": "black", "stock": 9},
+                {"size": "10", "color": "blue", "stock": 4}
+            ],
+            "featured": False
+        }
+    ]
+
+    created = []
+    for s in samples:
+        exists = db["product"].find_one({"title": s["title"]})
+        if exists:
+            continue
+        res = db["product"].insert_one(s)
+        created.append(str(res.inserted_id))
+
+    return {"created": created, "total": db["product"].count_documents({})}
+
 # Reviews -------------------------------------------------------------------
 class ReviewIn(Review):
     pass
